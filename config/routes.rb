@@ -3,5 +3,5 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :users, only: [:create]
   end
-  root to: 'static_pages#root'
+  root 'static_pages#root'
 end
