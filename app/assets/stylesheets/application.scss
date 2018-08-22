@@ -13,3 +13,80 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "variables";
+
+body {
+  font-family: 'Abel', sans-serif;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $light-gray;
+  height: 60px;
+  width: 100%;
+  margin-bottom: 15px;
+
+  > * {
+    padding: 20px;
+  }
+}
+
+.header-link {
+  font-size: 40px;
+  text-decoration: none;
+  color: black;
+}
+
+.form-container {
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form-box {
+  padding: 15px;
+  border: 1px solid black;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  > input {
+    margin: 10px;
+  }
+}
+
+.button {
+  background-color: #2bd11b;
+  color: white;
+  font-family: 'Abel', sans-serif;
+  font-size: 20px;
+
+  &:hover {
+    background-color: #1fb511;
+  }
+
+  &:active {
+    background-color: #1c9b10;
+  }
+}
+
+.logout-button {
+  background-color: red;
+  color: white;
+  font-family: 'Abel', sans-serif;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #df0000;
+  }
+
+  &:active {
+    background-color: #c20000;
+  }
+}

@@ -7,7 +7,7 @@ const Greeting = ({ currentUser, logout }) => {
     return(
       <div>
         <h2>Welcome, {currentUser.username} !</h2>
-        <button onClick={logout}>Sign out</button>
+        <button onClick={logout} className="logout-button">Sign out</button>
       </div>
     )
   } else {
