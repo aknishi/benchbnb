@@ -11,6 +11,10 @@ export default class MarkerManager {
     // filter to add only the ones not in this.markers
     benches.filter(bench => !this.markers[bench.id])
       .forEach(newBench => this.createMarkerFromBench(newBench))
+    console.log(this.markers);
+    //Iterate through the keys in the markers object using Object.keys:
+    Object.keys(this.markers).filter(benchId => !benchObjects[benchId])
+      .forEach((benchId) => this.removeMarker(this.markers[benchId]))
   }
 
   createMarkerFromBench(bench) {
@@ -21,5 +25,10 @@ export default class MarkerManager {
       benchId: bench.id
     });
     this.markers[newMarker.benchId] = newMarker;
+  }
+
+  removeMarker(marker) {
+    this.markers[marker.benchId].setMap(null);
+    delete this.markers[marker.benchId];
   }
 }

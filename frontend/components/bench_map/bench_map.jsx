@@ -12,11 +12,23 @@ class BenchMap extends React.Component {
     const map = this.refs.map
     this.map = new google.maps.Map(map, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
+    this.registerListeners();
     this.MarkerManager.updateMarkers(this.props.benches);
   }
 
   componentDidUpdate() {
     this.MarkerManager.updateMarkers(this.props.benches);
+  }
+
+  registerListeners() {
+    google.maps.event.addListener(this.map, 'idle', () => {
+      const { north, south, east, west } = this.map.getBounds().toJSON();
+      const bounds = {
+        northEast: { lat: north, lng: east },
+        southWest: { lat: south, lng: west }
+      };
+      this.props.updateFilter('bounds', bounds);
+    });
   }
 
   render() {
