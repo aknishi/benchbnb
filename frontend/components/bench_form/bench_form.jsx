@@ -30,47 +30,45 @@ class BenchForm extends React.Component {
     const { lat, lng } = this.coords;
     return(
       <div className="form-container">
-        <form className="box" onSubmit={this.handleSubmit}>
-          <h3>Create a Bench!</h3>
-          <br/>
-          <div className="new-bench-form">
-            <label>Description:
-              <input
-                className="bench-field"
-                type="text"
-                value={this.state.description}
-                onChange={this.update('description')}
+        <div className="new-bench-form">
+          <form onSubmit={this.handleSubmit}>
+            <h3 className="form-title">Create a Bench!</h3>
+            <br/>
+            <label className="bench-field">Description:</label>
+            <input
+              className="bench-field"
+              type="text"
+              value={this.state.description}
+              onChange={this.update('description')}
+              />
+            <label className="bench-field">Number of Seats:</label>
+            <input
+              className="bench-field"
+              min="0"
+              type="number"
+              value={this.state.seating}
+              onChange={this.update('seating')}
+              />
+            <label className="bench-field">Latitude</label>
+            <input
+              className="bench-field"
+              type="text"
+              disabled
+              value={lat}
+              />
+            <label className="bench-field">Longitude:</label>
+            <input
+              className="bench-field"
+              type="text"
+              disabled
+              value={lng}
                 />
-            </label>
-            <label>Number of Seats:
-              <input
-                className="bench-field"
-                min="0"
-                type="number"
-                value={this.state.seating}
-                onChange={this.update('seating')}
-                />
-            </label>
-            <label>Latitude
-              <input
-                className="bench-field"
-                type="text"
-                disabled
-                value={lat}
-                />
-            </label>
-            <label>Longitude:
-              <input
-                className="bench-field"
-                type="text"
-                disabled
-                value={lng}
-                />
-            </label>
-            <input type="submit" value="Create Bench" />
-            <button onClick={this.returnToSeach}>Cancel</button>
-          </div>
-        </form>
+            <div className="button-container">
+              <input className="button" type="submit" value="Create Bench" />
+              <button className="logout-button" onClick={this.returnToSeach}>Cancel</button>
+            </div>
+          </form>
+        </div>
       </div>
     )
   }
