@@ -61,6 +61,26 @@ nav {
   }
 }
 
+.box {
+  padding: 15px;
+  border: 1px solid black;
+}
+
+.new-bench-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  > input {
+    margin: 10px;
+  }
+}
+
+input.bench-field {
+   margin: 10px;
+   padding: 2px;
+ }
+
+
 .button {
   background-color: #2bd11b;
   color: white;
