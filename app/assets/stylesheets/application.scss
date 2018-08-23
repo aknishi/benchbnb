@@ -90,3 +90,15 @@ nav {
     background-color: #c20000;
   }
 }
+
+// BenchMap
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+#map-container {
+  width: 500px;
+  height: 500px;
+  background-color: red;
+}

@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import { fetchBenches } from '../../actions/bench_actions';
-import BenchIndex from './bench_index';
-import selectBenches from '../../reducers/selectors';
+import Search from './search';
+import values from 'lodash/values';
 
-const mapStateToProps = state => ({
-  benches: Object.keys(state.entities.benches).map(id => state.entities.benches[id])
-});
-
+const mapStateToProps = ({ entities: { benches }}) => {
+  return({
+    benches: values(benches)
+  });
+}
 const mapDispatchToProps = dispatch => ({
   fetchBenches: () => dispatch(fetchBenches())
 });
@@ -14,4 +15,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BenchIndex)
+)(Search)
