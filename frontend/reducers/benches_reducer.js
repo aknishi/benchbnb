@@ -1,4 +1,4 @@
-import { merge } from 'lodash/merge';
+import merge from 'lodash/merge';
 import { RECEIVE_BENCHES, RECEIVE_BENCH, RECEIVE_REVIEW } from '../actions/bench_actions';
 
 const benchesReducer = (state = {}, action) => {
@@ -8,7 +8,7 @@ const benchesReducer = (state = {}, action) => {
     case RECEIVE_BENCHES:
       return action.benches;
     case RECEIVE_BENCH:
-      return {[action.bench.id]: action.bench};
+      return merge ({}, state, {[action.bench.id]: action.bench});
     case RECEIVE_REVIEW:
       const { review, average_rating } = action;
       newState = merge({}, state);
