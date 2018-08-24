@@ -1,6 +1,7 @@
 export default class MarkerManager {
-  constructor(map){
+  constructor(map, handleClick){
     this.map = map;
+    this.handleClick = handleClick;
     this.markers = {};
   }
 
@@ -11,7 +12,6 @@ export default class MarkerManager {
     // filter to add only the ones not in this.markers
     benches.filter(bench => !this.markers[bench.id])
       .forEach(newBench => this.createMarkerFromBench(newBench))
-    console.log(this.markers);
     //Iterate through the keys in the markers object using Object.keys:
     Object.keys(this.markers).filter(benchId => !benchObjects[benchId])
       .forEach((benchId) => this.removeMarker(this.markers[benchId]))
@@ -24,6 +24,7 @@ export default class MarkerManager {
       map: this.map,
       benchId: bench.id
     });
+    newMarker.addListener('click', () => this.handleClick(bench));
     this.markers[newMarker.benchId] = newMarker;
   }
 

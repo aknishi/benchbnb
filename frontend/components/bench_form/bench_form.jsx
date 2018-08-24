@@ -6,7 +6,7 @@ class BenchForm extends React.Component {
     this.coords = {lat: props.lat, lng: props.lng};
     this.state = {
       description: '',
-      seating: 2
+      seating: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -14,6 +14,7 @@ class BenchForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const bench = Object.assign({}, this.state, this.coords);
+    console.log(bench);
     this.props.createBench(bench);
     this.returnToSearch();
   }
@@ -44,7 +45,7 @@ class BenchForm extends React.Component {
             <label className="bench-field">Number of Seats:</label>
             <input
               className="bench-field"
-              min="0"
+              min="2"
               type="number"
               value={this.state.seating}
               onChange={this.update('seating')}

@@ -8,4 +8,10 @@ class Bench < ApplicationRecord
       .where("lng > ?", bounds[:southWest][:lng])
   end
 
+  has_many :reviews
+
+  def average_rating
+    reviews.average(:rating)
+  end
+
 end

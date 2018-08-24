@@ -1,9 +1,9 @@
 import { fetchBenches } from './bench_actions';
 
-export const UPDATE_BOUNDS = "UPDATE_BOUNDS";
+export const UPDATE_FILTER = "UPDATE_FILTER";
 
 const changeFilter = (filter, value) => ({
-  type: UPDATE_BOUNDS,
+  type: UPDATE_FILTER,
   filter,
   value
 })

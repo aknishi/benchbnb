@@ -40,6 +40,81 @@ nav {
   color: black;
 }
 
+.main-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.left-half {
+
+}
+
+.right-half {
+  width: 400px;
+  margin-left: 50px;
+  margin-top: 40px;
+  height: 480px;
+  overflow-y: scroll;
+  padding: 0 20px 20px 20px;
+}
+
+// Bench index
+
+.filter-form {
+  margin-bottom: 10px;
+}
+
+.bench-index-item {
+  border: 1px solid black;
+  width: 100%;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.index-item-info {
+  margin: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.category-title {
+  font-weight: bold;
+}
+
+.index-item-category {
+
+}
+
+// .filter-container {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+.filter-title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+input.filter {
+   margin: 5px;
+   width: 50px;
+ }
+
+ label.filter {
+  width: 130px;
+  flex: wrap;
+}
+
+// Login form
 .form-container {
   font-size: 18px;
   display: flex;
@@ -49,7 +124,7 @@ nav {
 }
 
 .login-form-box {
-  padding: 15px;
+  padding: 20px;
   border: 1px solid black;
 }
 
@@ -57,9 +132,7 @@ nav {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  > input {
-    margin: 10px;
-  }
+  margin: 15px;
 }
 
 .box {
@@ -67,6 +140,7 @@ nav {
   border: 1px solid black;
 }
 
+// New bench form
 .new-bench-form {
   display: flex;
   flex-direction: column;
@@ -76,19 +150,19 @@ nav {
 }
 
 .form-title {
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
   font-weight: bold;
   margin: 20px 30px 0px 30px;
 }
 
 input.bench-field {
-   margin: 10px;
-   padding: 2px;
-   width: 190px;
- }
+  margin: 10px;
+  padding: 2px;
+  width: 190px;
+}
 
- label.bench-field {
+label.bench-field {
   width: 125px;
   display: inline-block;
 }
@@ -135,6 +209,18 @@ input.bench-field {
 .search-container {
   display: flex;
   align-items: center;
+}
+
+//reviews
+
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-list-item {
+  border: 1px solid black;
+  padding: 15px;
 }
 
 #map-container {

@@ -11,9 +11,7 @@ class BenchIndex extends React.Component {
 
     return (
       <div>
-        <ul>
           { benchItems }
-        </ul>
       </div>
     )
   }

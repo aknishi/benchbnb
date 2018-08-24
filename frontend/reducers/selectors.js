@@ -1,1 +1,9 @@
 export const selectBenches = state => values(state.entities.benches);
+
+export const selectBench = ({ benches }, benchId) => {
+  return benches[benchId] || { reviewIds: [] };
+};
+
+export const selectReviewsForBench = ({ benches, reviews }, bench) => {
+  return bench.reviewIds.map(reviewId => reviews[reviewId]);
+};

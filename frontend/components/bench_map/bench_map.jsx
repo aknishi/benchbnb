@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import MarkerManager from '../../util/marker_manager';
 import { withRouter } from 'react-router-dom';
 
@@ -18,23 +19,22 @@ class BenchMap extends React.Component {
     const map = this.refs.map
     this.map = new google.maps.Map(map, mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-    this.registerListeners();
-    this.MarkerManager.updateMarkers(this.props.benches);
-  }
-
-  handleClick(coords) {
-    this.props.history.push({
-      pathname: "benches/new",
-      search: `lat=${coords.lat}&lng=${coords.lng}`
-    });
-  }
-
-  handleMarkerClick(bench) {
-    this.props.history.push(`benches/${bench.id}`);
+    if (this.props.singleBench) {
+      this.props.fetchBench(this.props.benchId);
+    } else {
+      this.registerListeners();
+      this.MarkerManager.updateMarkers(this.props.benches);
+    }
   }
 
   componentDidUpdate() {
-    this.MarkerManager.updateMarkers(this.props.benches);
+    if (this.props.singleBench) {
+      const targetBenchKey = Object.keys(this.props.benches)[0];
+      const targetBench = this.props.benches[targetBenchKey];
+      this.MarkerManager.updateMarkers([targetBench]);
+    } else {
+      this.MarkerManager.updateMarkers(this.props.benches);
+    }
   }
 
   registerListeners() {
@@ -52,10 +52,20 @@ class BenchMap extends React.Component {
     });
   }
 
+  handleMarkerClick(bench) {
+    this.props.history.push(`benches/${bench.id}`);
+  }
+
+  handleClick(coords) {
+    this.props.history.push({
+      pathname: "benches/new",
+      search: `lat=${coords.lat}&lng=${coords.lng}`
+    });
+  }
+
   render() {
     return(
       <div id="map-container" ref="map">
-
       </div>
     )
   }

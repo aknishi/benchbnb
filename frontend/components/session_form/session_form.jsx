@@ -38,7 +38,7 @@ class SessionForm extends React.Component {
           <ul>
             {this.errors()}
           </ul>
-          {this.props.formType} here or {this.props.navLink} instead
+          <h3 className="form-title">{this.props.formType} here or {this.props.navLink} instead</h3>
           <div className="login-form">
             <br/>
             <label> Username:
